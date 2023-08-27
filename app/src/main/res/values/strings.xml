@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CleanArch</string>
+    <string name="no_data">NoData</string>
+    <string name="get_data">GET DATA</string>
+    <string name="put_data">PutData</string>
+    <string name="save_data">SAVE DATA</string>
+</resources>
