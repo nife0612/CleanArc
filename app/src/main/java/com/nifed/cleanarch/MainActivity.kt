@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val saveDataBut = findViewById<Button>(R.id.saveDataBut)
 
         getDataBut.setOnClickListener{
-            getDataUseCase.execute()
+            getDataTV.text = "${getDataUseCase.execute().firstName} ${getDataUseCase.execute().secondName}"
         }
 
         saveDataBut.setOnClickListener{
