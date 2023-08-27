@@ -1,9 +1,10 @@
 package com.nifed.cleanarch.domain.usecase
 
-import com.nifed.cleanarch.domain.model.UserName
+import com.nifed.cleanarch.domain.model.UserNameModel
+import com.nifed.cleanarch.domain.repository.UserRepository
 
-class GetDataUseCase {
-    fun execute(): UserName{
-        return UserName(firstName = "Nicole", secondName = "Mar")
+class GetDataUseCase(private val repository: UserRepository) {
+    fun execute(): UserNameModel{
+        return repository.getUserName()
     }
 }

@@ -1,9 +1,10 @@
 package com.nifed.cleanarch.domain.usecase
 
-import com.nifed.cleanarch.domain.model.SaveUserName
+import com.nifed.cleanarch.domain.model.UserNameModel
+import com.nifed.cleanarch.domain.repository.UserRepository
 
-class SaveDataUseCase {
-    fun execute(data: SaveUserName): Boolean{
-        return data.name.isNotEmpty()
+class SaveDataUseCase(private val saveUserRepository: UserRepository) {
+    fun execute(data: UserNameModel): Boolean{
+        return saveUserRepository.saveUserName(data)
     }
 }
