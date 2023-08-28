@@ -2,7 +2,7 @@ package com.nifed.cleanarch.data.storage.sharpref
 
 import android.content.Context
 import com.nifed.cleanarch.data.storage.UserStorage
-import com.nifed.cleanarch.data.storage.model.UserData
+import com.nifed.cleanarch.data.storage.model.UserDataModel
 
 
 private const val SHARED_PREF_NAME = "shar_pref_name"
@@ -16,17 +16,17 @@ class SharedPrefUserStorage(context: Context): UserStorage {
         SHARED_PREF_NAME,
         Context.MODE_PRIVATE
     )
-    override fun save(userNameModel: UserData): Boolean {
-        sharedPreferences.edit().putString(KEY_FIRST_NAME, userNameModel.firstName).apply()
-        sharedPreferences.edit().putString(KEY_SECOND_NAME, userNameModel.secondName).apply()
+    override fun save(userDataModel: UserDataModel): Boolean {
+        sharedPreferences.edit().putString(KEY_FIRST_NAME, userDataModel.firstName).apply()
+        sharedPreferences.edit().putString(KEY_SECOND_NAME, userDataModel.secondName).apply()
         return true
     }
 
-    override fun get(): UserData {
+    override fun get(): UserDataModel {
         val firstName = sharedPreferences.getString(KEY_FIRST_NAME, DEFAULT_FIRST_NAME) ?: DEFAULT_FIRST_NAME
         val secondName = sharedPreferences.getString(KEY_SECOND_NAME, DEFAULT_SECOND_NAME) ?: DEFAULT_SECOND_NAME
 
-        return UserData(
+        return UserDataModel(
             firstName  = firstName,
             secondName = secondName
         )
