@@ -6,19 +6,35 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.nifed.cleanarch.R
-import com.nifed.cleanarch.data.repository.UserRepositoryImpl
-import com.nifed.cleanarch.data.storage.sharpref.SharedPrefUserStorage
-import com.nifed.cleanarch.domain.model.UserNameModel
-import com.nifed.cleanarch.domain.usecase.GetDataUseCase
 import com.nifed.cleanarch.domain.usecase.SaveDataUseCase
+import com.nifed.cleanarch.domain.usecase.GetDataUseCase
+import com.nifed.clanarch.data.repository.UserRepositoryImpl
+import com.nifed.clanarch.data.storage.sharpref.SharedPrefUserStorage
+
 
 class MainActivity : AppCompatActivity() {
 
 
-    private val sharedPrefUserStorage by lazy { SharedPrefUserStorage(context = applicationContext) }
-    private val userRepositoryImpl by lazy { UserRepositoryImpl(sharedPrefUserStorage) }
-    private val getDataUseCase by lazy { GetDataUseCase(userRepositoryImpl) }
-    private val saveDataUseCase by lazy { SaveDataUseCase(userRepositoryImpl) }
+    private val sharedPrefUserStorage by lazy {
+        SharedPrefUserStorage(
+            context = applicationContext
+        )
+    }
+    private val userRepositoryImpl by lazy {
+        UserRepositoryImpl(
+            sharedPrefUserStorage
+        )
+    }
+    private val getDataUseCase by lazy {
+        GetDataUseCase(
+            userRepositoryImpl
+        )
+    }
+    private val saveDataUseCase by lazy {
+        SaveDataUseCase(
+            userRepositoryImpl
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +52,8 @@ class MainActivity : AppCompatActivity() {
         saveDataBut.setOnClickListener{
 
             val result = saveDataUseCase.execute(
-                UserNameModel(
-                    firstName  = saveDataPT.text.toString(),
+                com.nifed.cleanarch.domain.model.UserNameModel(
+                    firstName = saveDataPT.text.toString(),
                     secondName = saveDataPT.text.toString()
                 )
             )

@@ -1,11 +1,9 @@
-package com.nifed.cleanarch.data.repository
+package com.nifed.clanarch.data.repository
 
-import com.nifed.cleanarch.data.storage.UserStorage
-import com.nifed.cleanarch.data.storage.model.UserDataModel
+import com.nifed.clanarch.data.storage.UserStorage
+import com.nifed.clanarch.data.storage.model.UserDataModel
 import com.nifed.cleanarch.domain.model.UserNameModel
 import com.nifed.cleanarch.domain.repository.UserRepository
-
-
 
 class UserRepositoryImpl(private val userStorage: UserStorage): UserRepository {
 
@@ -26,7 +24,7 @@ class UserRepositoryImpl(private val userStorage: UserStorage): UserRepository {
         return UserNameModel(userDataModel.firstName, userDataModel.secondName)
     }
 
-    private fun mapToStorage(userNameModel: UserNameModel): UserDataModel{
+    private fun mapToStorage(userNameModel: UserNameModel): UserDataModel {
         return UserDataModel(userNameModel.firstName, userNameModel.secondName)
     }
 }

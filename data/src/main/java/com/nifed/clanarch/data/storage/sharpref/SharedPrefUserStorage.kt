@@ -1,8 +1,8 @@
-package com.nifed.cleanarch.data.storage.sharpref
+package com.nifed.clanarch.data.storage.sharpref
 
 import android.content.Context
-import com.nifed.cleanarch.data.storage.UserStorage
-import com.nifed.cleanarch.data.storage.model.UserDataModel
+import com.nifed.clanarch.data.storage.UserStorage
+import com.nifed.clanarch.data.storage.model.UserDataModel
 
 
 private const val SHARED_PREF_NAME = "shar_pref_name"

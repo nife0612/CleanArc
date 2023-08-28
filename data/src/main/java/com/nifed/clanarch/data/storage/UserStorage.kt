@@ -1,6 +1,6 @@
-package com.nifed.cleanarch.data.storage
+package com.nifed.clanarch.data.storage
 
-import com.nifed.cleanarch.data.storage.model.UserDataModel
+import com.nifed.clanarch.data.storage.model.UserDataModel
 
 interface UserStorage {
     fun save(userDataModel: UserDataModel): Boolean

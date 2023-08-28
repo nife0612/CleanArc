@@ -7,6 +7,8 @@ android {
     namespace = "com.nifed.cleanarch"
     compileSdk = 33
 
+
+
     defaultConfig {
         applicationId = "com.nifed.cleanarch"
         minSdk = 24
@@ -30,12 +32,18 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
+
+
+    implementation(project(":data"))
+    implementation(project(":domain"))
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
